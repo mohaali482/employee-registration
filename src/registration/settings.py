@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     # Local apps
-    'employee',
+    'employees',
 ]
 
 MIDDLEWARE = [
