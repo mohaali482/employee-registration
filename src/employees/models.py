@@ -29,6 +29,9 @@ class Employee(models.Model):
     personal_phone = PhoneNumberField()
     home_phone = PhoneNumberField()
 
+    # Image
+    image = models.ImageField(_("Image"), upload_to='employees/employee/')
+
     class Meta:
         verbose_name = _("employee")
         verbose_name_plural = _("employees")
