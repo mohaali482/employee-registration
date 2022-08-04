@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Third-party packages
     'rest_framework',
+    'corsheaders',
 
     # Local apps
     'employees',
