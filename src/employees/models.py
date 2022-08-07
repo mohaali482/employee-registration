@@ -3,7 +3,7 @@ import uuid
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from model_utils.choices import Choices
-from phonenumber_field.formfields import PhoneNumberField
+from phonenumber_field.modelfields import PhoneNumberField
 
 class Employee(models.Model):
     martial_status_choices = Choices(
