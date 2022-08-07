@@ -1,10 +1,33 @@
 from rest_framework import serializers
+from phonenumber_field.serializerfields import PhoneNumberField
 
 from .models import Employee
 
 class EmployeeSerializer(serializers.ModelSerializer):
-    id = serializers.HyperlinkedIdentityField("employee-detail")
+    firstName = serializers.CharField(source='first_name')
+    lastName = serializers.CharField(source='last_name')
+    birthDate = serializers.DateField(source='birth_date')
+    martialStatus = serializers.CharField(source='martial_status')
+    ssnCode = serializers.CharField(source='ssn_code')
+    postCode = serializers.CharField(source='post_code')
+    personalPhone = PhoneNumberField(source='personal_phone')
+    homePhone = PhoneNumberField(source='home_phone')
 
     class Meta:
         model = Employee
-        fields = "__all__"
+        fields = (
+            'id',
+            'firstName',
+            'lastName',
+            'birthDate',
+            'martialStatus',
+            'ssnCode',
+            'address',
+            'city',
+            'postCode',
+            'email',
+            'personalPhone',
+            'homePhone',
+            'created_date',
+            'image',
+        )
