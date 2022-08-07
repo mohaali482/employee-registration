@@ -9,7 +9,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
     birthDate = serializers.DateField(source='birth_date')
     martialStatus = serializers.CharField(source='martial_status')
     ssnCode = serializers.CharField(source='ssn_code')
-    postCode = serializers.CharField(source='post_code')
+    postalCode = serializers.CharField(source='post_code')
     personalPhone = PhoneNumberField(source='personal_phone')
     homePhone = PhoneNumberField(source='home_phone')
 
@@ -24,7 +24,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
             'ssnCode',
             'address',
             'city',
-            'postCode',
+            'postalCode',
             'email',
             'personalPhone',
             'homePhone',
