@@ -16,7 +16,7 @@ class Employee(models.Model):
     # Basic information
     first_name = models.CharField(_("First Name"), max_length=50)
     last_name = models.CharField(_("Last Name"), max_length=50)
-    birth_date = models.DateTimeField(_("Birthdate"), auto_now=False, auto_now_add=False)
+    birth_date = models.DateField(_("Birthdate"), auto_now=False, auto_now_add=False)
     martial_status = models.CharField(_("Martial Status"), max_length=10, choices=martial_status_choices)
     ssn_code = models.CharField(_("SSN code"), max_length=250)
     # Location information
@@ -28,6 +28,8 @@ class Employee(models.Model):
     email = models.EmailField(_("Email"), max_length=254, unique=True)
     personal_phone = PhoneNumberField()
     home_phone = PhoneNumberField()
+
+    created_date = models.DateTimeField(_("Created At"), auto_now_add=True)
 
     # Image
     image = models.ImageField(_("Image"), upload_to='employees/employee/')
