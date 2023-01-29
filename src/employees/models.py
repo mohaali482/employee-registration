@@ -5,19 +5,23 @@ from django.utils.translation import ugettext_lazy as _
 from model_utils.choices import Choices
 from phonenumber_field.modelfields import PhoneNumberField
 
+
 class Employee(models.Model):
     martial_status_choices = Choices(
         ("single", _("Single")),
         ("married", _("Married")),
     )
 
-    id = models.UUIDField(_("Id"), primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(_("Id"), primary_key=True,
+                          default=uuid.uuid4, editable=False)
 
     # Basic information
     first_name = models.CharField(_("First Name"), max_length=50)
     last_name = models.CharField(_("Last Name"), max_length=50)
-    birth_date = models.DateField(_("Birthdate"), auto_now=False, auto_now_add=False)
-    martial_status = models.CharField(_("Martial Status"), max_length=10, choices=martial_status_choices)
+    birth_date = models.DateField(
+        _("Birthdate"), auto_now=False, auto_now_add=False)
+    martial_status = models.CharField(
+        _("Martial Status"), max_length=10, choices=martial_status_choices)
     ssn_code = models.CharField(_("SSN code"), max_length=250)
     # Location information
     address = models.CharField(_("Address"), max_length=50)
